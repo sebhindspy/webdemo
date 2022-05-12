@@ -1,0 +1,893 @@
+@import "opensans.less";
+
+
+/*  accesso design standards - greyscales - dont change these */
+
+/* primary text */
+@G1: #1A1A1A;
+
+/* secondary text */
+@G2: #474747;
+
+/* disabled state of various UI components */
+@G3: #BABABA;
+
+/* content divider lines */
+@G4: #D8D8D8;
+
+/* secondary base canvas */
+@G5: #F2F2F2;
+
+/* primary base canvas and text on @primary */
+@G6: #FFFFFF;
+
+
+/* existing qsmart theme colour scheme*/
+
+/* primary brand colour */
+@primary: #1D60000;
+@primary-dark: darken(@primary, 40%);
+@primary-light: lighten(@primary, 20%);
+
+/* secondary brand colour */
+@secondary: #fcd004;
+@secondary-dark: darken(@secondary, 40%);
+@secondary-light: lighten(@secondary, 20%);
+
+/* colour shop */
+@tertiary: #49a941;
+@tertiary-dark: darken(@tertiary, 40%);
+@tertiary-light: lighten(@tertiary, 20%);
+
+/* success */
+@success: #2b9243;
+@success-dark: darken(@success, 40%);
+@success-light: lighten(@success, 20%);
+
+/* error */
+@error: #DE1B3C;
+@error-dark: darken(@error, 40%);
+@error-light: lighten(@error, 20%);
+
+
+
+/*  dont change these mappings */
+@color0: @primary;
+@color0-text: @G6;
+@color1: @tertiary;
+@color1-text: @G6;
+@colorshop: @tertiary;
+@colorshop-text: @G6;
+@color-background: @G6;
+@color-text: @G1;
+
+
+@color-blocked: #0077c1; /* what to do here - this isn't used anywhere else */
+
+@color-unavailable:@error-light;
+@color-disabled: G3;
+@color-reserved: @success-dark;
+@color-time: @G1;
+@color-warning:@G5;
+@color-warning2: @color-blocked;
+@color-border: @G4;
+@color-button: @color0;
+@color-button-border: @color0;
+@color-button-text: @color0-text;
+@color-statusbar: @G5;
+@color-error: @error-light;
+
+@color-activate-prompt: @G1;
+
+@color-nav0: @G1;
+@color-nav1: @G2;
+@color-nav-text: @G2;
+@color-nav-border: @G1;
+
+@color-highlight-button: @primary-light;
+@color-highlight-button-text: @G6;
+
+/* @color-ride-reserved-background: #D4E9DC; we should probably define this in terms of @success */
+@color-ride-reserved-background: lighten(@success, 60%);
+
+/* not sure about the check boxes */
+@color-checkable-unselected: @primary;
+@color-checkable-selected: @success-light;
+@color-checkable-disabled: @G3;
+
+@color-checkable-selected-text: @G1;
+@color-checkable-unselected-text: @G1;
+@color-checkable-disabled-text: @G1;
+
+
+
+
+
+@color-kiosk-active-tile: @success;
+@color-kiosk-invalid-tile: @error;
+@color-kiosk-reserved-tile: @secondary-dark; /* maybe */
+@color-kiosk-overlay-buttons: rgba(0, 0, 0, 0.5);
+@color-kiosk-overlay-buttons-text: @G6;
+
+
+
+@padding-mainimage:195px;
+
+@show-ride-allowance: false;
+
+@guest-data-graph-width: 150px;
+@guest-data-graph-height: 100px;
+
+@kiosk-overlay-height: 70px;
+
+
+
+
+.font() {
+	font-family: "Open Sans", sans-serif !important;
+}
+html {
+.title {
+	min-height: 110px;
+}
+
+.name.v2-font-subtitle1 {
+	font-weight: 700;
+}
+
+.v2-font-h6 {
+	font-weight: 600;
+}
+
+.v2-card.activate-prompt {
+background: @color-activate-prompt;	
+
+}
+
+div.button-list button.service-level>img {
+	width: 64px !important;
+	height: 64px !important;
+	margin-bottom: 5px !important;
+}
+
+div.button-list button.service-level div.name {
+    padding-top: 15px;
+    margin-right: 105px;
+    font-size: 25px;
+}
+
+div.index div.title div.text {
+	display: none;
+}
+
+a div.wait-time-indicator, .addon-list button.in-basket {
+	background: @color-ride-reserved-background;
+}
+
+body {
+	font-size: 13px;
+}
+
+nav header h2 span {
+	font-size: 10px;
+}
+
+
+ul.select-list li.ride-item div.state, ul.select-list li.show-item div.state,
+ul.select-list li.ride-item ul.state, ul.select-list li.show-item ul.state {
+	font-size: 12px;	
+}
+
+button.add span {
+	vertical-align: top;
+	line-height: 1em;
+	font-size: 93%;
+}
+
+div.loadingpage img {
+	height: 90px;
+}
+
+.status-bar .status-bar-content div.wait-time, .status-bar .status-bar-content div div.notify-warning {
+	font-weight:400;
+}
+
+.countdownHolder span {
+	line-height:28px;
+}
+
+.reservation-list ul.select-list li.ride-item
+{
+	a.ready {
+		background: @color-ride-reserved-background;
+	}
+}
+
+nav div.button-list button.active, nav div.button-list button.current {
+	color: @G2;
+}
+
+div.index div.title img {
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;	
+	top: -1px;
+	height: 108px;
+}
+
+div#social-container {
+    display: none;
+   }
+
+#nav-scroll Button#sidebar-send-feedback{
+	display: none;
+	}
+	
+a#reservation-clear-preferred-time {
+   visibility: hidden;
+}
+	
+	body[class^="sl"], body[class*=" sl"] {
+		header, header > a{
+			background: @secondary;
+            	}
+		#header #header-title, #header #header-title2 {
+			color: @G1;
+			/*text-indent: -9999px;
+                        line-height: 0;
+            
+			&::after {
+						content: "THE FLASH Pass: Active";
+						text-indent: 0;
+						display: block;
+						line-height: 55px;
+						text-align: centre;
+			}*/
+		}
+		
+		#header i.material-icons {
+			color: @G1 !important;
+		}
+	}
+.price1.v2-font-subtitle2 {
+	display: none;
+}
+
+}
+
+#authtoken-img {
+	display:none;
+}
+
+div.v2-font-caption.access-time {
+	color: @G1 !important;
+}
+
+div.state {
+	color: @G1 !important;
+	}
+
+#entitlements-upgrades-group {
+	color: @G6 !important;
+}
+
+input.quantity {
+	font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+// Padding for site
+.v2-card {
+	border-radius: 20px !important;
+}
+
+div.usage {
+	height: 560px !important;
+	max-height: 90vh !important;
+}
+
+div.usage div.content>span {
+	height: 150px;
+	overflow: hidden;
+	display: inline-block;
+	text-align:	left;
+	width: 100%
+}
+
+div.index div.title img {
+	left: 0;
+	right: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	top: 10px;
+	height: 90px;
+	display: none;
+}
+
+nav #sidebar-about-wide {
+	background: none;
+}
+
+button.addon.bundle.warning {
+	display: none;
+}
+
+div#social-container {
+	display: none;
+}
+
+body.frame div#modal {
+	border-radius: 20px !important;
+}
+
+.v2-button, .v2-font-button {
+	border-radius: 20px !important;
+}
+
+.v2-card-base
+{
+	// Cards use white backgrounds so they look fine if the theme background is white, and stand out if it's not.
+	background-color: @G6;
+	.v2-elevation-z1();
+	border: none;
+	.border-radius(20px);
+	box-sizing: border-box;
+	overflow: hidden;
+	outline: 0;
+
+	a
+	{
+		// Link covers the entire card.
+		height: 100%;
+		width: 100%;
+		border: inherit;
+		border-radius: inherit;
+		position: relative;
+		overflow: hidden;
+		text-align: left;
+	}
+
+	a.disabled
+	{
+		color: fade(@color1-text, 90%);  /* this might need to change */
+		background-color: @color-border;
+	}
+
+	a.timeslot
+	{
+		.font-color-unimportant();
+		text-align: center;
+		padding-top: 13px;
+	}
+
+	.name
+	{
+		//.ellipsis();
+		box-sizing: border-box;
+		.padding(8px, 8px, 4px, 8px);
+		justify-content: space-between;
+		text-align: left;
+	}
+
+	.state, .warning-text, .access-time
+	{
+		box-sizing: border-box;
+		// Less important text is black with 60% opacity.
+		.font-color-unimportant();
+		.text-align(left);
+
+		&.warning
+		{
+			color: @color-error;
+
+			i.material-icons
+			{
+				color: @color-error;
+			}
+		}
+
+		i.material-icons
+		{
+			font-size: inherit;
+			vertical-align: text-top;
+		}
+	}
+
+	.state
+	{
+		.padding(0, 8px, 4px, 8px);
+	}
+
+	.v2-card-img
+	{
+		padding-bottom: 56.25%;
+		display: block;
+		// Image borders are only curved where they meet the corners of the card.
+		border: inherit;
+		border-radius: inherit;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background-repeat: no-repeat;
+		background-origin: padding-box;
+		background-size: cover;
+		background-position: center;
+		// The following is required because child elements require absolute positioning. This parent element can not have position: initial.
+		position: relative;
+
+		span.allowance
+		{
+			position: absolute;
+			top: 8px;
+			.right(8px);
+		}
+	}
+
+	.access-time, &.show-item li, .attraction-distance
+	{
+		padding: 4px;
+		.margin(0, 4px, 4px, 4px);
+		.ellipsis();
+		border-radius: 20px;
+
+		i.material-icons
+		{
+			// Don't display the icon on narrow screens to make more space for the ride access time.
+			// This happens when the screen width is just wide enough to show n cards per row, but not 12px wider than the minimum.
+			@media (min-width: calc(@max-1-card + 1px)) and (max-width: calc(@max-1-card + 13px)), (min-width: calc(@max-2-cards + 1px)) and (max-width: calc(@max-2-cards + 13px)), (min-width: calc(@max-3-cards + 1px)) and (max-width: calc(@max-3-cards + 13px)), (min-width: calc(@max-4-cards + 1px)) and (max-width: calc(@max-4-cards + 13px))
+			{
+				display: none;
+			}
+		}
+	}
+
+	&.has-reservations
+	{
+		background-color: @color-ride-reserved-background;  /* i think this is right... */
+
+		.access-time, &.show-item li.reserved
+		{
+			background-color: tint(@color-ride-reserved-background, 80%);  /* and this... */
+
+			&, & > i.material-icons
+			{
+				font-weight: @font-weight-black;
+			}
+		}
+	}
+
+	&.ride-item > a, &.entielement-item > a
+	{
+		display: flex;
+		flex-direction: column;
+
+		div.state
+		{
+			flex-grow: 1;
+		}
+	}
+
+	&.cancel-item
+	{
+		width: 120px;
+		display: block;
+	}
+
+	&.show-item li
+	{
+		display: inline-block;
+	}
+
+	&.activate-prompt.full-width
+	{
+		max-width: 616px;
+	}
+
+	a#entitlement-choice div.name
+	{
+		// Don't cut off text with ellipsis on this type of card.
+		white-space: normal;
+	}
+
+	&.no-img div.v2-card-img
+	{
+		// Background images are set using element.style, so must be hidden with !important override.
+		// Most browsers should avoid loading the images in this case to save bandwidth.
+		background-image: none !important;
+		padding-bottom: 0 !important;
+	}
+
+	&.activate-prompt
+	{
+		background-color: @color-highlight-button;
+
+		div.name, div.state
+		{
+			color: @color-highlight-button-text;
+		}
+	}
+
+	.attraction-distance:empty
+	{
+		display: none;
+	}
+}
+
+div.attraction-list div#attraction-group-8d65829d-75ea-4bf6-a9af-30348e41eac8 li.ride-item, div.attraction-list div#attraction-group-faf30080-e584-457c-8585-486c69f1895d li.ride-item {
+    flex-basis: ~"calc(100% - 8px)";
+    max-width: 616px;
+
+    div.v2-card-img {
+      padding-bottom: 32%;
+    }
+}
+div.ride-details-page, div.addon-attraction, div.addon-bundle, div.reservation-defer-page, div.show-details-page, div.reservation-details-page, .entitlement-content
+{
+	div.ride-details, div.entitlement-details
+	{
+		&#ride-details-social, &#entitlement-name
+		{
+			display: flex;
+			justify-content: space-between;
+			// Allow the heading to stay close to the top of the surface to avoid an unappealing margin.
+			margin-top: 0;
+
+			div#details-container
+			{
+				// Allow space for the social buttons (120px +1px in case of browser-specific svg rounding errors)
+				width: ~"calc(100% - 121px)";
+			}
+
+			div#social-container
+			{
+				.margin-left(0);
+				visibility: hidden;
+			}
+		}
+
+		div.state
+		{
+			margin-top: 0;
+			.font-color-unimportant();
+		}
+
+		span.allowance
+		{
+			.margin-left(16px);
+			// This lies next to a larger font and needs raising manually.
+			vertical-align: 0.2em;
+		}
+
+		div.attraction-addon-basket, div.bundle-addon-basket
+		{
+			position: absolute;
+			top: 0px;
+			.right(0);
+		}
+
+		div.attraction-wait-time
+		{
+			margin-top: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
+
+	div#entitlement-details button
+	{
+		margin-top: 16px;
+	}
+
+	#prereserve
+	{
+		height: 30px;
+		padding-top: 10px;
+	}
+
+	a, button
+	{
+		&.v2-button span.price
+		{
+			flex-grow: 0;
+		}
+	}
+
+
+	div.addon-details
+	{
+		div#spinner-container
+		{
+			margin-top: 16px;
+		}
+	}
+
+	div#images
+	{
+		// Prevent header images from covering too much of wide screens.
+		max-height: 280px;
+	}
+
+	div#images + div.content
+	{
+		margin-top: -16px;
+		padding-top: 16px;
+		.border-top-radius(20px);
+		position: relative;
+	}
+
+	i.material-icons
+	{
+		.margin-right(8px);
+	}
+
+	div.v2-card.reservation-content
+	{
+		.v2-elevation-z8();
+		padding-bottom: 16px;
+		.border-radius(8px);
+		background-color: @color-background;
+
+		&.performance
+		{
+			text-align: left;
+		}
+
+		#spin-container
+		{
+			// Specific padding for empty reservation details to place 20px spinner in middle.
+			margin-left: ~"calc(50% - 10px)";
+			margin-top: 60px;
+			height: 140px;
+		}
+
+		div.wait-time-container
+		{
+			color: @color0-text;
+			.border-top-radius(8px);
+		}
+
+		#reservation-container .v2-font-h6 i
+		{
+			// Make any icon in the reservation header large, for use with a big green tick in some themes.
+			// Set details.ready to <i class='material-icons md-dark'>check_circle_outline</i> to use this.
+			font-size: 128px;
+			color: @color-reserved;
+			text-align: center;
+			width: 100%;
+			margin: 0;
+		}
+	}
+
+	div#ride-details-buttons, div#addon-details
+	{
+		display: flex;
+		flex-wrap: wrap;
+		// Smaller than the normal content margins, as the buttons have individual margins too for separation.
+		.margin(8px);
+
+		div.attraction-addons, div#reserve-buttons
+		{
+			flex-basis: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+		}
+
+		button.v2-button
+		{
+			.card-grid(8px);
+			min-height: 40px;
+			height: auto;
+			flex-wrap: wrap;
+
+			span + span
+			{
+				margin-left: 8px;
+			}
+
+			div
+			{
+				width: 100%;
+			}
+
+			&.addon
+			{
+				background-color: @color-highlight-button;
+
+				div, span, &
+				{
+					color: @color-highlight-button-text;
+				}
+			}
+		}
+	}
+
+	div.info-row
+	{
+		div.info-cell
+		{
+			h3, h4, h5, h6
+			{
+				// This text must align with icon child elements, similar to buttons.
+				display: flex;
+				align-items: center;
+				margin-bottom: 8px;
+			}
+		}
+
+		div.info-cell + div.info-cell
+		{
+			// Make sure multiple info cells immediately after each other are spaced evenly.
+			margin-top: 16px;
+		}
+	}
+
+	a.v2-button.warning
+	{
+		.font-color-important();
+	}
+
+	ul.addon li.v2-card div.name
+	{
+		// Addon card titles on details pages.
+		text-align: left;
+		padding: 8px;
+	}
+
+	div.ride-details, div.reservation-details
+	{
+		.v2-button
+		{
+			width: 100%;
+		}
+	}
+
+	h4.reserve-addon-subheader
+	{
+		padding-top: 8px;
+	}
+
+	div#make-reservation
+	{
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+#nav-scroll
+{
+	width: 100%;
+
+	nav
+	{
+		background: @color-background;
+		position: absolute;
+		width: 280px;
+		min-height: 100vh;
+		top: 0;
+		z-index: 9999;
+		.left(-280px);
+		opacity: 0;
+		.v2-elevation-z16();
+		-moz-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		-o-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+
+		header
+		{
+			filter: none;
+			width: 280px;
+			height: 157px;
+			background: linear-gradient(to bottom, transparent, rgba(214,0,0,0.2), rgba(214,0,0,0.75)), url("../images/pages/nav.jpg?v=") no-repeat center center !important;
+			background-size: cover !important;
+			margin-bottom: 8px;
+
+			span
+			{
+				position: absolute;
+				line-height: normal;
+				.ellipsis();
+				.left(16px);
+				.right(16px);
+				.text-align(left);
+			}
+
+			span.service-level
+			{
+				    color: white !important;
+  				 	bottom: 18px !important;
+    				right: 10px !important;
+    				font-size: 0.9em !important;
+    				text-align: right !important;
+    				padding: 1px !important;
+			}
+
+			span.guest
+			{
+				bottom: 2px !important;
+    			right: 10px !important;
+   				color: #fff !important;
+    			text-align: right !important;
+    			font-weight: 600 !important;
+			}
+		}
+
+		div.button-list
+		{
+			button
+			{
+				display: flex;
+				overflow: hidden;
+				flex-direction: row;
+				align-items: center;
+				line-height: 1;
+				border: none;
+				.text-align(left);
+				min-height: 48px;
+				.padding-left(16px);
+				.padding-right(8px);
+				width: 100%;
+				outline: none;
+
+				i
+				{
+					.margin-right(32px);
+				}
+
+				span
+				{
+					display: inline-block;
+					line-height: 32px;
+					.ellipsis();
+				}
+			}
+
+			#sidebar-about, #sidebar-about-wide
+			{
+				span
+				{
+					position: absolute;
+					bottom: 2px;
+					.left(0);
+				}
+			}
+
+			#sidebar-about-wide img
+			{
+				display: block;
+				height: 32px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.divider
+			{
+				background: rgba(0,0,0,0.1);
+				margin: 8px 0;
+				height: 1px;
+				border: none;
+			}
+
+			button.active, button.current
+			{
+				background: rgba(0,0,0,0.04);
+
+				i.md-dark, .reservation-count
+				{
+					color: black;
+				}
+			}
+
+			.reservation-count
+			{
+				position: absolute;
+				.right(16px);
+			}
+		}
+	}
+}
